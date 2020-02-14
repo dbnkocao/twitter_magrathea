@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  postgres:
+    image: "dbnkocao/postgres:10"
+    volumes:
+      - postgres:/usr/local/pgsql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    command: /start.sh
+    volumes:
+      - .:/app
+      - gems:/gems
+    # tty: true
+
+volumes:
+  postgres:
+  gems:
