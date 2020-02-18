@@ -19,4 +19,4 @@ test:
 production:
   <<: *default
   database: magrathea_production
-  password: <%= ENV['EXCHANGE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['EXCHANGE_DATABASE_PASSWORD'] %>  

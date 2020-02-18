@@ -6,7 +6,7 @@ describe 'Twitter' do
   it 'must return a valid array from tweets' do
     since_id = rand(0..9999)
     hashtag = "##{FFaker::Lorem.word}"
-    res = TwitterService.new(hashtag, since_id).perform['statuses'][0]
+    res = TwitterService.new(hashtag, since_id).perform[0]
 
     expect(res["created_at"]).to be_present
     expect(res["text"]).to be_present
