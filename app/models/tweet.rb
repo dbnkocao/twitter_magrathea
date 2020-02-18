@@ -11,6 +11,7 @@ class Tweet < ApplicationRecord
         new_tweet.mensagem = tweet["text"]
         new_tweet.autor = tweet["user"]["screen_name"]
         new_tweet.data_publicacao = tweet["created_at"]
+        new_tweet.hashtags = tweet["entities"]["hashtags"].map {|hashtag| hashtag["text"]}
 
         new_tweet.save
       end
