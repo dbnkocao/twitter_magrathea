@@ -2,6 +2,8 @@
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 require 'webmock/rspec'
 require 'ffaker'
+require 'factory_bot_rails'
+
 WebMock.disable_net_connect!(allow_localhost: true)
 require File.expand_path("../../config/environment", __FILE__)
 
