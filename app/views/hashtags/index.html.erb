@@ -1,1 +1,22 @@
-<h1>Hello World!</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Descrição</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hashtags.each do |hashtag| %>
+      <tr>
+        <td><%= hashtag.descricao %></td>
+        <td>
+          <%= form_for hashtag, method: :delete do |f| %>
+            <button type='submit'>
+              Deletar
+            </button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

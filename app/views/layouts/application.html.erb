@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <% if flash.present? %>
+      <% flash.each do |type, message|%>
+        <div><%= message %></div>
+      <% end %>
+    <% end %>
+
+   <%# - if flash.present?
+    .flash-messages
+      %div{class: "flash-box #{flash.first[0] == 'notice' ? 'success' : 'danger'}"}
+        .informaion
+
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: 'message' %>
+
     <%= yield %>
   </body>
 </html>

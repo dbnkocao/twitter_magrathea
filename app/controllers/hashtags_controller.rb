@@ -3,13 +3,17 @@ class HashtagsController < ApplicationController
     @hashtags = Hashtag.all
   end
 
+  def new
+    @hashtag = Hashtag.new
+  end
+
   def create
     @hashtag = Hashtag.new(resource_params)
     if @hashtag.save
-      flash[:success] = "Object successfully created"
+      flash[:success] = "Hashtag criada com sucesso!"
       redirect_to hashtags_url
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = @hashtag.errors.full_messages.join(' - ')
       render 'new'
     end
   end
@@ -17,14 +21,13 @@ class HashtagsController < ApplicationController
   def destroy
     @hashtag = Hashtag.find(params[:id])
     if @hashtag.destroy
-      flash[:success] = 'Object was successfully deleted.'
+      flash[:success] = 'Hashtag deletada com sucesso!'
       redirect_to hashtags_url
     else
-      flash[:error] = 'Something went wrong'
+      flash[:error] = @hashtag.errors.full_messages.join(' - ')
       redirect_to hashtags_url
     end
   end
-  
 
   private
   def resource_params

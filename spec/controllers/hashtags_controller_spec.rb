@@ -25,4 +25,11 @@ RSpec.describe HashtagsController, type: :controller do
       }.to change(Hashtag, :count).by(-1)
     end
   end
+
+  context '#new' do
+    it 'respondes successfully' do
+      get :new
+      expect(response).to have_http_status(200)
+    end
+  end
 end
