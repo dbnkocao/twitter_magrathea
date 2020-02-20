@@ -10,20 +10,13 @@
           Hashtags
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="<%= new_hashtag_path %>">Criar Hashtag</a>
+          <a class="dropdown-item" href="<%= hashtags_path %>">Lista de Hashtags</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Tweets</a>
+        <a class="nav-link" href="<%= tweets_path %>">Tweets</a>
       </li>
     </ul>
   </div>
 </nav>
-<script>
-  $(".dropdown-toggle").click(function(){
-     alert('clicou')
-  })
-
-</script>

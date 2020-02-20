@@ -11,7 +11,7 @@ class TwitterService
     begin
       twitter_api_url = Rails.application.credentials[:api_url]
       bearer_token = Rails.application.credentials[:bearer_access_token]
-      url = "#{twitter_api_url}?q=%23#{@hashtag}&count=100"
+      url = "#{twitter_api_url}?q=%23#{@hashtag}&count=100&result_type=recent&exclude=retweets&exclude=replies&tweet_mode=extended"
       res = RestClient.get(url, {authorization: "Bearer #{bearer_token}"})
       JSON.parse(res.body)["statuses"]
     rescue RestClient::ExceptionWithResponse => e
