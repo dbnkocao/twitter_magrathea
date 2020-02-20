@@ -8,8 +8,13 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-require("popper.js")
 require("bootstrap")
+
+import $ from 'jquery'
+window.jQuery = $;
+window.$ = $;
+
+require("packs/custom/tweets")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

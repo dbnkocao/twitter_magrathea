@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "Tweets", type: :feature do
   scenario 'Show index with tweets' do
-    tweet1 = create(:tweet)
-    tweet2 = create(:tweet)
+    hashtag = create(:hashtag)
+    tweet1 = create(:tweet, hashtags: [hashtag.descricao])
+    tweet2 = create(:tweet, hashtags: [hashtag.descricao])
     
     visit(tweets_path)
 

@@ -1,11 +1,4 @@
 <%= select_tag :hashtag, options_for_select(@hashtags.map &:descricao), prompt: 'filtrar por hashtag' %></br>
-
-<% @tweets.each do |tweet|%>
-  Autor: <%= tweet.autor %></br>
-  Mensagem : <%= tweet.mensagem %></br>
-  Data de Publicação: <%= tweet.data_publicacao %></br>
-  Hashtags: <%= tweet.hashtags.join(' ') %>
-  <hr>
-<% end %>
-
-<%= will_paginate @tweets %>
+<div id='tweets'>
+  <%= render partial: 'tweets' %>
+</div>

@@ -18,4 +18,14 @@ class Tweet < ApplicationRecord
       end
     end
   end
+
+  def self.tweets_by_hashtags(hashtags)
+    if hashtags.present?
+      hashtags = hashtags.map {|h| "'#{h.descricao.downcase}'" }.join(',')
+    else
+      hashtags = "''"
+    end
+
+    Tweet.where("array[#{hashtags}] && string_to_array(lower(array_to_string(hashtags, ',')),',')")
+  end
 end
