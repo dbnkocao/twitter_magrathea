@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_215551) do
+ActiveRecord::Schema.define(version: 2020_02_21_012150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_215551) do
     t.string "tweet_id"
     t.string "mensagem"
     t.string "autor"
-    t.date "data_publicacao"
+    t.datetime "data_publicacao"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "hashtags", default: [], array: true

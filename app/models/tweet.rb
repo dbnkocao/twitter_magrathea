@@ -13,7 +13,7 @@ class Tweet < ApplicationRecord
         new_tweet.autor = tweet["user"]["screen_name"]
         new_tweet.data_publicacao = tweet["created_at"]
         new_tweet.hashtags = tweet["entities"]["hashtags"].map {|hashtag| hashtag["text"]}
-        
+          
         new_tweet.save
 
       end
@@ -27,6 +27,6 @@ class Tweet < ApplicationRecord
       hashtags = "''"
     end
 
-    Tweet.where("array[#{hashtags}] && string_to_array(lower(array_to_string(hashtags, ',')),',')")
+    Tweet.where("array[#{hashtags}] && string_to_array(lower(array_to_string(hashtags, ',')),',')").order(data_publicacao: :desc)
   end
 end
