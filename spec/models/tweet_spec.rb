@@ -38,13 +38,13 @@ RSpec.describe Tweet, type: :model do
 
     it "should create one tweet" do
       expect{
-        Tweet::sync_twitter
+        Tweet::sync_twitter_without_delay
       }.to change(Tweet, :count).by(1)
     end
 
     describe "should save correct attributes" do
       before :each do
-        Tweet::sync_twitter
+        Tweet::sync_twitter_without_delay
         @tweet = Tweet.last
       end
 

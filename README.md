@@ -61,6 +61,11 @@ Execute as migrations
 bundle exec rake db:migrate
 ```
 
+Inicie o delayed_job
+```
+bin/delayed_job start
+```
+
 Suba o serviço
 ```
 bundle rails s

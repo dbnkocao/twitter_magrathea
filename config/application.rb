@@ -12,8 +12,7 @@ module App
     config.load_defaults 6.0
     config.time_zone = 'America/Sao_Paulo'
     config.active_record.default_timezone = :local
-
-
+    config.active_job.queue_adapter = :delayed_job
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
