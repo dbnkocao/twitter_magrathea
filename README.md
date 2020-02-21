@@ -1,11 +1,11 @@
 # README
 Sistema que busca e armazena os tweets mas relevantes e recentes, que contenham as hashtags cadastradas no sistema
 
-# Versions
+# Versões
 * Ruby 2.6.5
 * Rails 6.0.2
 
-# System dependencies
+# Dependências do Sistema
 - yarn
 - postgresql
 - webpacker
@@ -15,10 +15,10 @@ Sistema que busca e armazena os tweets mas relevantes e recentes, que contenham 
 RAILS_ENV=test bundle exec rspec spec
 ```
 
-# Services
+# Serviços
  - TwitterService(Busca tweets com as hashtags cadastradas no sistema)
 
-# Deployment instructions
+# Deploy
 
 Remova os arquivos das credencias
 ```
