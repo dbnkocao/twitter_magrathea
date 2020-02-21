@@ -1,12 +1,14 @@
 class TweetsController < ApplicationController
   def index
-    @hashtags = Hashtag.all
-    @tweets = Tweet::tweets_by_hashtags(@hashtags).paginate(page: params[:page], per_page: 30)
-  end
+    @options_hashtags = Hashtag.all
 
-  def get_tweets
-    hashtags = Hashtag.where(descricao: params[:hashtag])
+    if params[:hashtag].present?
+      @hashtag = Hashtag.find(params[:hashtag])
+      hashtags = [@hashtag]
+    else
+      hashtags = Hashtag.all
+    end
+
     @tweets = Tweet::tweets_by_hashtags(hashtags).paginate(page: params[:page], per_page: 30)
-    render partial: 'tweets'
   end
 end
