@@ -1,24 +1,67 @@
 # README
+Sistema que busca e armazena os tweets mas relevantes e recentes, que contenham as hashtags cadastradas no sistema
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Versions
+* Ruby 2.6.5
+* Rails 6.0.2
 
-Things you may want to cover:
+# System dependencies
+- yarn
+- postgresql
+- webpacker
 
-* Ruby version
+# Rodando os teste
+```
+RAILS_ENV=test bundle exec rspec spec
+```
 
-* System dependencies
+# Services
+ - TwitterService(Busca tweets com as hashtags cadastradas no sistema)
 
-* Configuration
+# Deployment instructions
 
-* Database creation
+Remova os arquivos das credencias
+```
+rm config/credentials.yml.enc
+rm config/master.key
+```
 
-* Database initialization
+Execute o seguinte comando para recriar os arquivos das credencias
+rails credentials:edit
 
-* How to run the test suite
+Essa aplicação utiliza autenticação via bearer token do twitter, para mais informações de como obtê-lo acesse https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0/bearer-tokens
 
-* Services (job queues, cache servers, search engines, etc.)
+Adicione essas duas linhas as credenciais
+```
+api_url: https://api.twitter.com/1.1/search/tweets.json
 
-* Deployment instructions
+bearer_access_token: <seu_bearer_token>
+```
+Instale as gems
+```
+bundle install
+```
+Instale as bibliotecas adicionadas com yarn
+```
+yarn install
+```
 
-* ...
+Execute o comando de instalação do webpacker
+```
+rails webpacker:install
+```
+
+Crie a base de dados
+```
+bundle exec rake db:create
+```
+
+Execute as migrations
+```
+bundle exec rake db:migrate
+```
+
+Suba o serviço
+```
+bundle rails s
+```
