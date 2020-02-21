@@ -1,7 +1,16 @@
-<%= form_for @hashtag do |f| %>
-  <label>
-    Descrição
-    <%= f.text_field :descricao %>
-  </label>
-  <%= f.submit 'Criar Hashtag'%>
-<% end %>
+<div class="card">
+  <div class="card-header text-center">
+    <h3>Nova Hashtag</h3>
+  </div>
+  <div class="card-body">
+    <%= form_for @hashtag do |f| %>
+      <div class="form-group">
+        <label>
+          Descrição
+          <%= f.text_field :descricao, class: "form-control" %>
+        </label>
+      </div>
+      <%= f.submit 'Criar Hashtag', class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,15 @@
-<%= select_tag :hashtag, options_for_select(@hashtags.map &:descricao), prompt: 'filtrar por hashtag' %></br>
-<div id='tweets'>
-  <%= render partial: 'tweets' %>
+<div class="card">
+  <div class="card-header text-center">
+    <h3>Lista de Tweets</h3>
+  </div>
+  <div class="card-body">
+    <div class='container'>
+      <div class='form-group col-6 offset-3'>
+        <%= select_tag :hashtag, options_for_select(@hashtags.map &:descricao), {prompt: 'Selecionar Hashtag', class: 'form-control'} %></br>
+      </div>
+    </div>
+    <div id='tweets'>
+      <%= render partial: 'tweets' %>
+    </div>
+  </div>
 </div>

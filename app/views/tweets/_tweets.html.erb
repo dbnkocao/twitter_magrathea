@@ -1,10 +1,9 @@
 <% @tweets.each do |tweet|%>
-  Autor: <%= tweet.autor %></br>
-  Mensagem : <%= tweet.mensagem %></br>
-  Data de Publicação: <%= tweet.data_publicacao %></br>
-  Hashtags: <%= tweet.hashtags.join(' ') %>
+  <strong>Autor:</strong> <%= tweet.autor %></br>
+  <strong>Mensagem:</strong> <%= tweet.mensagem %></br>
+  <strong>Data de Publicação:</strong> <%= tweet.data_publicacao %></br>
+  <strong>Hashtags:</strong> <%= tweet.hashtags.join(' ') %>
   <hr>
 <% end %>
 
-<%= will_paginate @tweets %>
-
+<%= will_paginate @tweets, previous_label: 'Anterior', next_label: 'Próximo' %>

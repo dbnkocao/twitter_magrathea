@@ -12,17 +12,17 @@
   <body>
     <%= render partial: '/layouts/menu' %>
     <% if flash.present? %>
-      <% flash.each do |type, message|%>
-        <div><%= message %></div>
-      <% end %>
-    <% end %>
-
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <%= yield %>
+      <div class="container col-4 offset-4">
+        <div class="card flash text-center <%= flash.first[0] == 'error' ? 'bg-danger' : 'bg-success'%>">
+          <% flash.each do |type, message|%>
+            <div><%= message %></div>
+          <% end %>
         </div>
       </div>
+    <% end %>
+
+    <div class="container col-8 offset-2">
+      <%= yield %>
     </div>
   </body>
 </html>
