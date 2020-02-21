@@ -2,10 +2,11 @@ class Tweet < ApplicationRecord
 
   def self.sync_twitter
     Hashtag.all.each do |hashtag|
-
-      tweets = TwitterService.new(hashtag.descricao).perform
+      last_tweet_hashtag = Tweet::tweets_by_hashtags([hashtag]).last
+      tweets = TwitterService.new(hashtag.descricao, last_tweet_hashtag.try(:twitter_id)).perform
 
       tweets.each do |tweet|
+
         new_tweet = Tweet.new
         new_tweet.tweet_id = tweet["id_str"]
         new_tweet.mensagem = tweet["full_text"]
