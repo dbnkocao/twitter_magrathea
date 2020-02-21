@@ -46,11 +46,6 @@ Instale as bibliotecas adicionadas com yarn
 yarn install
 ```
 
-Execute o comando de instalação do webpacker
-```
-rails webpacker:install
-```
-
 Crie a base de dados
 ```
 bundle exec rake db:create
@@ -68,5 +63,5 @@ bin/delayed_job start
 
 Suba o serviço
 ```
-bundle rails s
+bundle exec rails s
 ```
