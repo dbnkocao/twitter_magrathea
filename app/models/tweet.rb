@@ -1,5 +1,5 @@
 class Tweet < ApplicationRecord
-
+  validates_uniqueness_of :tweet_id, on: :create, message: "Tweet já cadastrado."
   def self.sync_twitter
     Hashtag.all.each do |hashtag|
       last_tweet_hashtag = Tweet::tweets_by_hashtags([hashtag]).last

@@ -94,5 +94,15 @@ RSpec.describe Tweet, type: :model do
       
     end
   end
+
+  it "validate uniquiness tweet_id" do
+    tweet1 = create(:tweet)
+    tweet2 = Tweet.new(attributes_for(:tweet))
+    tweet2.tweet_id = tweet1.tweet_id
+
+    expect(tweet2).to_not be_valid
+    expect(tweet2.errors[:tweet_id]).to include('Tweet já cadastrado.')
+  end
+
 end
  
