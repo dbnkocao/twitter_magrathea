@@ -15,7 +15,8 @@ class TwitterService
       res = RestClient.get(url, {authorization: "Bearer #{bearer_token}"})
       JSON.parse(res.body)["statuses"]
     rescue RestClient::ExceptionWithResponse => e
-      e.response
+      puts e.response
+      []
     end
   end
 end
